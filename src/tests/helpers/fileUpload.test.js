@@ -1,5 +1,11 @@
 import { fileUpload } from "../../helpers/fileUpload";
+import cloudinary from 'cloudinary'
 
+cloudinary.config({ 
+    cloud_name: 'nubemarcos', 
+    api_key: '691499618219262', 
+    api_secret: 'XjSyZ-eWIQIGNK4UYc5-79JCzNg' 
+  });
 
 describe('Pruebas en fileUpload', () => {
     
@@ -12,6 +18,15 @@ describe('Pruebas en fileUpload', () => {
         const url = await fileUpload(file);
 
         expect( typeof url).toBe('string')
+
+        const segments = url.split('/');
+        const imageId = segments[ segments.length - 1 ].replace('.png','');
+        cloudinary.v2.api.delete_resources( imageId, {}, ()=>{
+            return null
+        });
+
+        //done() no me funciona
+
     })
 
     test('debe de retornar un error', async() => {
