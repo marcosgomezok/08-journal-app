@@ -17,10 +17,16 @@ export const startNewNote = () => {
             date: new Date().getTime()
         }
 
-        const doc = await db.collection(`${ uid }/journal/notes`).add( newNote );
+        try{
 
-        dispatch( activeNote( doc.id, newNote ) );
-        dispatch( addNewNote( doc.id, newNote ) );
+            const doc = await db.collection(`${ uid }/journal/notes`).add( newNote );
+    
+            dispatch( activeNote( doc.id, newNote ) );
+            dispatch( addNewNote( doc.id, newNote ) );
+        }catch(error){
+            console.log(error)
+        }
+
 
     }
 }
@@ -97,7 +103,7 @@ export const startUploading = ( file ) => {
             title: 'Uploading...',
             text: 'Please wait...',
             allowOutsideClick: false,
-            onBeforeOpen: () => {
+            willOpen: () => { //aca borre el onBeforeOpen
                 Swal.showLoading();
             }
         });
