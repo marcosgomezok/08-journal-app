@@ -12,7 +12,8 @@ import { startGoogleLogin } from '../../../actions/auth';
 import { startLoginEmailPassword } from './../../../actions/auth';
 
 jest.mock('../../../actions/auth',()=>({
-    startGoogleLogin:  jest.fn()
+    startGoogleLogin:  jest.fn(),
+    startLoginEmailPassword: jest.fn()
 }))
 const middlewares = [thunk]
 const mockStore = configureStore(middlewares)
@@ -61,10 +62,10 @@ describe('Pruebas en LoginScreen', () => {
     test('debe de disparar el startLogin con los respectivos argumentos ', () => {
        
           
-        /* wrapper.find('form').prop('onSubmit')({preventDefault(){}});
+         wrapper.find('form').prop('onSubmit')({preventDefault(){}});
 
         expect(startLoginEmailPassword).toHaveBeenLastCalledWith('journal-app@hotmail.com','123456')
- */
+ 
 
     })
     

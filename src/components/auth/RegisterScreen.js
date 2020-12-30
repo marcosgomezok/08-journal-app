@@ -12,7 +12,7 @@ export const RegisterScreen = () => {
     const {msgError} = useSelector( state => state.ui );
 
 
-    console.log(msgError)
+    //console.log(msgError)
 
     const [formValues, handleInputChange] = useForm({
         name: 'Marcos',
