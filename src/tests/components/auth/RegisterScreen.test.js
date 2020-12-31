@@ -52,7 +52,7 @@ describe('Pruebas en <RegisterScreen/>', () => {
         const emailField = wrapper.find('input[name="email"]');
         
         //console.log(emailField.exists())
-        
+
         emailField.simulate('change',{
             target:{
                 value:'',
@@ -72,6 +72,34 @@ describe('Pruebas en <RegisterScreen/>', () => {
             payload: 'Email invalid'
         })
     })
+
+    test('debe de mostrar la caja de alerta con el error', () => {
+        
+        const initState = {
+            auth:{},
+            ui:{
+                loading:false,
+                msgError:'Email no es correcto'
+            }
+        }
+        
+        const store = mockStore(initState)
+        
+        const wrapper = mount(
+            <Provider store ={store}>
+                <MemoryRouter>
+                <RegisterScreen/>
+        
+                </MemoryRouter>
+        
+            </Provider>
+        )
+
+        expect(wrapper.find('.auth__alert-error').exists()).toBe(true)
+        expect(wrapper.find('.auth__alert-error').exists().trim()).toBe(initState.ui.msgError)
+
+    })
+    
     
     
 })
