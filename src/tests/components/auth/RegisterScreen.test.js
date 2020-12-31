@@ -96,7 +96,7 @@ describe('Pruebas en <RegisterScreen/>', () => {
         )
 
         expect(wrapper.find('.auth__alert-error').exists()).toBe(true)
-        expect(wrapper.find('.auth__alert-error').exists().trim()).toBe(initState.ui.msgError)
+        expect(wrapper.find('.auth__alert-error').text().trim()).toBe(initState.ui.msgError)
 
     })
     
