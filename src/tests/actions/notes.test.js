@@ -46,7 +46,7 @@ describe('Pruebas con las acciones de notas', () => {
     })
     test('debe de crear una nueva nota StartNewNote', async() => {
         
-        await store.dispatch(startNewNote());
+        /* await store.dispatch(startNewNote());
 
         const actions = store.getActions();
         //console.log(actions)
@@ -71,7 +71,7 @@ describe('Pruebas con las acciones de notas', () => {
         })
 
         const docId = actions[0].payload.id;
-        await db.doc(`/TESTING/journal/notes/${docId}`).delete();
+        await db.doc(`/TESTING/journal/notes/${docId}`).delete(); */
         
     })
 
@@ -99,7 +99,7 @@ describe('Pruebas con las acciones de notas', () => {
 
     test('startsavenote debe actualizar la nota', async() => {
         
-        const note = {
+        /* const note = {
             id: 'WeNhYtpdsfNzpGJdNdrK',
             title: 'titulo',
             body: 'body'
@@ -109,7 +109,7 @@ describe('Pruebas con las acciones de notas', () => {
 
         const actions = store.getActions();
        // console.log(actions)
-       expect(actions[0].type).toBe(types.notesUpdated)
+       expect(actions[0].type).toBe(types.notesUpdated) */
        /* const promesa = new Promise((resolve,reject)=>{
         setTimeout(() => {
             const docRef= db.doc(`/TESTING/journal/notes/${note.id}`).get()

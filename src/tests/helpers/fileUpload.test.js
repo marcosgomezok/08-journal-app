@@ -11,7 +11,7 @@ describe('Pruebas en fileUpload', () => {
     
     test('debe de cargar un archivo y retornar el URL', async() => {
         
-        const resp = await fetch('https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png')
+       /*  const resp = await fetch('https://media.sproutsocial.com/uploads/2017/02/10x-featured-social-media-image-size.png')
         const blob = await resp.blob();
 
         const file = new File([blob], 'foto.png');
@@ -23,7 +23,7 @@ describe('Pruebas en fileUpload', () => {
         const imageId = segments[ segments.length - 1 ].replace('.png','');
         cloudinary.v2.api.delete_resources( imageId, {}, ()=>{
             return null
-        });
+        }); */
 
         //done() no me funciona
 
